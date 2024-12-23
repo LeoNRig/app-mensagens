@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "20358712246",
+    "project_id": "app-mensagem-1dfdc",
+    "storage_bucket": "app-mensagem-1dfdc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20358712246:android:a0cc50e62444e9383a0f17",
+        "android_client_info": {
+          "package_name": "com.leonr.appmensagem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADK99CJ4wOTxYuo4S75Hf3qjsKgaXME4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
