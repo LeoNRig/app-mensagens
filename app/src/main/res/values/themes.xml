@@ -3,6 +3,11 @@
     <style name="Base.Theme.AppMensagem" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/primaria</item>
+        <item name="actionOverflowButtonStyle">@style/ActionOverflow</item>
+    </style>
+
+    <style name="ActionOverflow" parent="Widget.AppCompat.ActionButton.Overflow">
+    <item name="tint">@color/white</item>
     </style>
 
     <style name="Theme.AppMensagem" parent="Base.Theme.AppMensagem" />
