@@ -9,6 +9,10 @@
     <style name="ActionOverflow" parent="Widget.AppCompat.ActionButton.Overflow">
     <item name="tint">@color/white</item>
     </style>
+    
+    <style name="Circulo">
+        <item name="cornerSize">30dp</item>
+    </style>
 
     <style name="Theme.AppMensagem" parent="Base.Theme.AppMensagem" />
 </resources>
