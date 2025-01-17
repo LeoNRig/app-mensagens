@@ -1,4 +1,4 @@
-package com.leonr.appmensagem
+package com.leonr.appmensagem.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +8,10 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.MenuProvider
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
+import com.leonr.appmensagem.R
 import com.leonr.appmensagem.adapters.ViewPagerAdapter
-import com.leonr.appmensagem.databinding.ActivityCadastroBinding
 import com.leonr.appmensagem.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

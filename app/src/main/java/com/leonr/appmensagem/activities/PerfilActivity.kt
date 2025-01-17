@@ -1,7 +1,6 @@
-package com.leonr.appmensagem
+package com.leonr.appmensagem.activities
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity

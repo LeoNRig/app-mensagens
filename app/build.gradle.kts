@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -41,6 +43,7 @@ android {
 }
 
 dependencies {
+
 
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.squareup.picasso:picasso:2.8")

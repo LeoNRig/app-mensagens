@@ -1,4 +1,4 @@
-package com.leonr.appmensagem
+package com.leonr.appmensagem.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
     private fun InicializarEventClique() {
         binding.textCadastro.setOnClickListener {
             startActivity(
-                Intent(this,CadastroActivity::class.java)
+                Intent(this, CadastroActivity::class.java)
             )
         }
         binding.btnLogar.setOnClickListener {

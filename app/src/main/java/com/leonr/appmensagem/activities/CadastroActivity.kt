@@ -1,16 +1,14 @@
-package com.leonr.appmensagem
+package com.leonr.appmensagem.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.firestore.FirebaseFirestore
 import com.leonr.appmensagem.databinding.ActivityCadastroBinding
-import com.leonr.appmensagem.databinding.ActivityLoginBinding
 import com.leonr.appmensagem.model.Usuario
 import com.leonr.appmensagem.utils.exibirMensagem
 
