@@ -6,4 +6,7 @@
     <color name="primaria">#97aed6</color>
     <color name="destaque">#b6cdf6</color>
     <color name="cinza">#C9C9C9</color>
+
+    <color name="fundo_verde_msg">#BCD8E8</color>
+
 </resources>

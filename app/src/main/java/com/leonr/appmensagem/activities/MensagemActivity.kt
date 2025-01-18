@@ -3,9 +3,14 @@ package com.leonr.appmensagem.activities
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.Query
 import com.leonr.appmensagem.R
+import com.leonr.appmensagem.adapters.ConversasAdapter
 import com.leonr.appmensagem.databinding.ActivityMensagemBinding
 import com.leonr.appmensagem.model.Mensagem
 import com.leonr.appmensagem.model.Usuario
@@ -27,7 +32,11 @@ class MensagemActivity : AppCompatActivity() {
         FirebaseAuth.getInstance()
     }
 
+    private lateinit var listenerRegistration: ListenerRegistration
+
     private var dadosDestinatario: Usuario? = null
+
+    private lateinit var conversasAdapter: ConversasAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +45,54 @@ class MensagemActivity : AppCompatActivity() {
         recuperarDadosUsuariosDestinatarios()
         inicializarToolbar()
         inicializarEventoClique()
+        inicializarRecyclerView()
+        inicializarListeners()
+    }
 
+    private fun inicializarRecyclerView() {
+        with(binding){
+            conversasAdapter = ConversasAdapter()
+            rvMensagem.adapter = conversasAdapter
+            rvMensagem.layoutManager = LinearLayoutManager(applicationContext)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        listenerRegistration.remove()
+    }
+
+    private fun inicializarListeners() {
+        val idUsuarioRemetente = firebaseAuth.currentUser?.uid
+        val idUsuarioDestinatario = dadosDestinatario?.id
+        if(idUsuarioRemetente != null && idUsuarioDestinatario != null){
+
+             listenerRegistration = firestore
+                .collection(Constantes.BD_MENSAGEM)
+                .document(idUsuarioRemetente)
+                .collection(idUsuarioDestinatario)
+                .orderBy("data", Query.Direction.ASCENDING)
+                .addSnapshotListener { querySnapshot, erro ->
+
+                    if(erro != null ){
+                        exibirMensagem("Erro ao recuperar mensagem")
+                    }
+                    val listaMensagens = mutableListOf<Mensagem>()
+                    val documentos = querySnapshot?.documents
+                    documentos?.forEach{documentSnapshot ->
+                        val mensagem = documentSnapshot.toObject(Mensagem::class.java)
+                        if(mensagem != null){
+                            listaMensagens.add(mensagem)
+                            Log.i("exibicao_msg", mensagem.mensagem)
+                    }
+                    }
+
+                    if(listaMensagens.isNotEmpty()){
+                        conversasAdapter.adicionarLista(listaMensagens)
+                    }
+
+                }
+        }
     }
 
     private fun inicializarEventoClique() {

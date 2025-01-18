@@ -1,5 +1,6 @@
 package com.leonr.appmensagem.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -52,6 +53,7 @@ class ContatosAdapter(
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: ContatosViewHolder, position: Int) {
 
     val usuario = listaContatos[position]
