@@ -33,6 +33,10 @@ class ContatosFragment : Fragment() {
         FirebaseFirestore.getInstance()
     }
 
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

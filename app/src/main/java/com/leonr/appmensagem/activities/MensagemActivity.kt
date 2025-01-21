@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
-import com.leonr.appmensagem.adapters.ConversasAdapter
+import com.leonr.appmensagem.adapters.MensagensAdapter
 import com.leonr.appmensagem.databinding.ActivityMensagemBinding
 import com.leonr.appmensagem.model.Conversa
 import com.leonr.appmensagem.model.Mensagem
@@ -37,7 +37,7 @@ class MensagemActivity : AppCompatActivity() {
     private var dadosDestinatario: Usuario? = null
     private var dadosUsuarioLogado: Usuario? = null
 
-    private lateinit var conversasAdapter: ConversasAdapter
+    private lateinit var conversasAdapter: MensagensAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class MensagemActivity : AppCompatActivity() {
 
     private fun inicializarRecyclerView() {
         with(binding){
-            conversasAdapter = ConversasAdapter()
+            conversasAdapter = MensagensAdapter()
             rvMensagem.adapter = conversasAdapter
             rvMensagem.layoutManager = LinearLayoutManager(applicationContext)
         }
@@ -211,20 +211,11 @@ class MensagemActivity : AppCompatActivity() {
 
         val extras = intent.extras
         if(extras != null) {
-            val origem = extras.getString("origem")
-            if (origem == Constantes.ORIGEM_CONTATO) {
-
-                dadosDestinatario = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            dadosDestinatario = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     extras.getParcelable("dadosDestinatario", Usuario::class.java)
                 }else{
                     extras.getParcelable("dadosDestinatario")
                 }
-
-            } else if (origem == Constantes.ORIGEM_CONVERSA) {
-
-
-
-            }
         }
 
     }
