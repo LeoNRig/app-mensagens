@@ -17,8 +17,6 @@
 2. Picasso 2.8
 3. Firestore, FirebaseAuth
 
-## 🛠Ferramentas JetpackCompose
-#### ViewModel
 
 ## Imagens
 
